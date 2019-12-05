@@ -1,68 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#lucci_movie
 
-## Available Scripts
+practice react app.
 
-In the project directory, you can run:
+## Screens
+-[] main
+-[] beer
+-[] detail
+-[] notice
 
-### `yarn start`
+## 기능
+1. 메인 페이지
+ 1)헤더에 movie,  notice 메뉴바 구현  (home,movie,notice,detail 까지 4라우터 필요)
+ 2) body 상단에 슬라이드 이미지 구현
+ 3) 중단에 4컷씩 출력되는 슬라이드 구현
+ 4) 하단에 아이템 리스트 출력 5 * 2 씩 10개 표현.
+ 5) 하단 아이템 리스트는 ▼  버튼 클릭시 다시 10개 출력.  
+      (lazy loading) 여기서 넣을 수 있다면 사용해서 구현
+ 6) 푸터 구현
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. movie 페이지
+ 1) 뒤로가기 버튼 구현
+ 2) 검색기능 구현 (비동기식)
+ 3) 인기순, 상영작순 으로 리스트 변동 구현
+ 4) 메인 페이지 처럼 5 * 2 형식으로 10개씩 노출되는 리스트
+ 5) 마우스를 스크롤 내리면 새로운 10개의 아이템이 노출
+      (lazy loading) 여기서 넣을 수 있다면 사용해서 구현
+ 6)아이템을 하나 클릭하면 상세보기 페이지로 이동 구현
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+3. movie detail 페이지
+ 1) 아이템 이미지 크게 구현하고
+ 2) 그 밖에 상세 정보들 출력
+ 3) 뒤로가기 버튼 구현
 
-### `yarn test`
+4. notice 페이지
+ 1) 뒤로가기 버튼 구현
+ 2) notice 리스트가 5개씩 출력되게 구현
+ 3) ▼ 버튼 클릭시 다시 5개 출력. 
+      (lazy loading) 여기서 넣을 수 있다면 사용해서 구현
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+--------------------------------------
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+ps) three .js (3d) 사용
