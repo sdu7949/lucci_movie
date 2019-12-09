@@ -15,6 +15,7 @@ export default () => (
             <Route path="/movie/popular" render={() => <h1>Popular</h1>} />
             <Route path="/movie/now" render={() => <h1>Now</h1>} />
             <Route path="/notice" exact component={Notice} />
+            <Route path="/slide" exact component={Home} />
             <Redirect from="*" to="/" />
 
         </Switch>
