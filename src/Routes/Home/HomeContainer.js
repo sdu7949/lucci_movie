@@ -15,15 +15,15 @@ const images = [
 ] ;
 
 
-export default class extends React.Component {
+export default class extends React.Component{
     state = {
         nowPlaying: null,
         error: null,
-
         images : null,
-
-        loading: true
+        loading: true,
     };
+
+    
 
     async componentDidMount(){
         try{
@@ -32,7 +32,7 @@ export default class extends React.Component {
             } = await moviesApi.nowPlaying(); 
             
             this.setState({
-                nowPlaying, images
+                nowPlaying, images, 
             });
             
         }catch{
@@ -48,6 +48,7 @@ export default class extends React.Component {
 
     render() {
         const { nowPlaying, loading, error } = this.state;
+
         
         return (
             <HomePresenter
@@ -55,6 +56,8 @@ export default class extends React.Component {
                 error={error}
                 loading={loading}
                 images={this.state.images}
+
+
             />
             
 

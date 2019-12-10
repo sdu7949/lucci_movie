@@ -15,24 +15,25 @@ const Header = styled.header`
 
 const Homego = styled.div`
     position : relative;
-    left : 41%;
+    left : 46%;
     color:black;
-    font-size : 20px;
+    font-size : 30px;
     margin : 30px 10px;
     
 `;
 const List = styled.ul`
     display:flex;
     position : absolute;
-    left: 40.5%;
-    height : 17px;
+    left: 44.5%;
+    height : 7px;
     margin : 30px 0px;
+    font-size : 23px;
 
 `;
 
 const Item = styled.li`
     position : relative;
-    width:58px;
+    width:98px;
     height:30px;
     text-align:center;
     align-items : center;

@@ -9,9 +9,9 @@ const Container = styled.div`
 
 const Image = styled.div`
   background-image: url(${props => props.bgUrl});
-  height: 180px;
+  height: 280px;
   background-size: cover;
-  border-radius: 4px;
+  border-radius: 7px;
   background-position: center center;
   transition: opacity 0.1s linear;
 `;
@@ -40,11 +40,12 @@ const ImageContainer = styled.div`
 const Title = styled.span`
   display: block;
   margin-bottom: 3px;
+  font-size : 20px;
 `;
 
 const Year = styled.span`
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  color: black;
 `;
 
 const Poster = ({ id, imageUrl, title, rating, year, isMovie = false }) => (

@@ -4,6 +4,7 @@ import Home from "Routes/Home";
 import Movie from "Routes/Movie";
 import Notice from "Routes/Notice";
 import Header from "Components/Header";
+import Carousel from "Routes/Home";
 
 export default () => (
     <Router>
@@ -15,7 +16,7 @@ export default () => (
             <Route path="/movie/popular" render={() => <h1>Popular</h1>} />
             <Route path="/movie/now" render={() => <h1>Now</h1>} />
             <Route path="/notice" exact component={Notice} />
-            <Route path="/slide" exact component={Home} />
+            <Route path="/carousel" exact component={Carousel} />
             <Redirect from="*" to="/" />
 
         </Switch>
