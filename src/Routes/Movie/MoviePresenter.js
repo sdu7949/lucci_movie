@@ -11,7 +11,14 @@ const Container = styled.div`
     padding : 20px;    
 `;
 
-const MoviePresenter=({nowPlaying, loading, error}) => (
+const Title = styled.div`
+    font-size : 25px;
+    font-weight: bold;
+    text-align : center;
+    margin: 20px 10px;
+`;
+
+const MoviePresenter = ({ nowPlaying, loading, error }) => (
     <>
         <Helmet>
             <title>Movie | LucciMovie</title>
@@ -19,25 +26,44 @@ const MoviePresenter=({nowPlaying, loading, error}) => (
         {loading ? (
             <Loader />
         ) : (
-            <Container>
-                {nowPlaying && nowPlaying.length > 0 && (
+                <Container>
+
+                    <Title>Movie</Title>
+
+                    {nowPlaying && nowPlaying.length > 0 && (
                         <Section title="Now Playing">
-                            {nowPlaying.map(movie =>(
-                                <Poster 
+                            {nowPlaying.map(movie => (
+                                <Poster
                                     key={movie.id}
                                     id={movie.id}
                                     imageUrl={movie.poster_path}
                                     title={movie.original_title}
                                     rating={movie.vote_average}
-                                    year={movie.release_date.substring(0,4)}
+                                    year={movie.release_date.substring(0, 4)}
                                     isMovie={true}
                                 />
                             ))}
                         </Section>
                     )}
-                    {error && <Message color="#e74c3c" text={error}/>}
-            </Container>
-        )}
+
+                    {nowPlaying && nowPlaying.length > 0 && (
+                        <Section>
+                            {nowPlaying.map(movie => (
+                                <Poster
+                                    key={movie.id}
+                                    id={movie.id}
+                                    imageUrl={movie.poster_path}
+                                    title={movie.original_title}
+                                    rating={movie.vote_average}
+                                    year={movie.release_date.substring(0, 4)}
+                                    isMovie={true}
+                                />
+                            ))}
+                        </Section>
+                    )}
+                    {error && <Message color="#e74c3c" text={error} />}
+                </Container>
+            )}
     </>
 );
 

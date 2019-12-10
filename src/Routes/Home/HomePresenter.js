@@ -14,8 +14,18 @@ const Container = styled.div`
     padding : 20px;    
 `;
 
+const ButtonContainer=styled.div`
+    text-align:center;
+`;
 
-const HomePresenter = ({ nowPlaying, loading, error, images }) => (
+const Button= styled.button`
+    margin : 0 auto;
+    width : 70%;
+    left : 50%;
+`;
+
+
+const HomePresenter = ({ nowPlaying, loading, error }) => (
     <>
         <Helmet>
             <title>Home | LucciMovie</title>
@@ -49,10 +59,16 @@ const HomePresenter = ({ nowPlaying, loading, error, images }) => (
                         </Section>
                     )}
 
-
-
-                    
                     {error && <Message color="#e74c3c" text={error} />}
+                    
+
+
+                
+
+                    <ButtonContainer>
+                        <Button>누르면 아이템이 더 나오는 버튼</Button>
+
+                    </ButtonContainer>
                 
                     <Footer />
                 </Container>
