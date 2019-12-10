@@ -1,25 +1,11 @@
 import React from "react";
 import HomePresenter from "./HomePresenter";
 import { moviesApi } from "api";
-import { img1, img2, img3, img4, img5, img6, img7} from "./Images";
-
-
-const images = [
-    { url: img1 },
-    { url: img2 },
-    { url: img3 },
-    { url: img4 },
-    { url: img5 },
-    { url: img6 },
-    { url: img7 }
-] ;
-
 
 export default class extends React.Component{
     state = {
         nowPlaying: null,
         error: null,
-        images : null,
         loading: true,
     };
 
@@ -32,7 +18,7 @@ export default class extends React.Component{
             } = await moviesApi.nowPlaying(); 
             
             this.setState({
-                nowPlaying, images, 
+                nowPlaying, 
             });
             
         }catch{
@@ -55,12 +41,7 @@ export default class extends React.Component{
                 nowPlaying={nowPlaying}
                 error={error}
                 loading={loading}
-                images={this.state.images}
-
-
             />
-            
-
         )
     }
 }

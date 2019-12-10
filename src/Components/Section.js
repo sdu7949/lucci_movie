@@ -11,14 +11,14 @@ const Container = styled.div`
 
 
 const Title = styled.span`
-    font-size: 16px;
+    font-size: 18px;
     font-weight : 600;
 `;
 
 const Grid = styled.div`
     margin-top : 25px;
     display:grid;
-    grid-template-columns:repeat(auto-fill, 200px);
+    grid-template-columns:repeat(auto-fill, 150px);
     grid-gap:25px;
     padding : 0px 30px;
 

@@ -12,12 +12,13 @@ import mypic8 from '../../assets/8.jpg';
 
 const Container = styled.div`
   font-size: 12px;
+  margin-bottom : 100px;
 `;
 
 const Title = styled.div`
   font-size : 18px;
   font-weight : 510;
-  margin : 50px 0px 30px 0px;
+  margin : 10px 0px 30px 0px;
 `;
 
 const Item = styled.div`
@@ -29,7 +30,7 @@ const Item = styled.div`
 `;
 
 const Contents = styled.div`
-  margin : 50px 330px;
+  margin : 50px 30px;
 `;
 
 const Images = styled.img`
@@ -38,17 +39,18 @@ const Images = styled.img`
 `;
 
 
-export default class SimpleSlider extends Component {
+export default class Carousel extends Component {
   render() {
     const settings = {
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 4,
+      slidesToShow: 7,
       slidesToScroll: 2
     };
     return (
       <Container>
+        <hr></hr>
         <Title> Hot Movies </Title>
 
         <Contents>

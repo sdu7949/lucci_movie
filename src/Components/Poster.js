@@ -9,7 +9,7 @@ const Container = styled.div`
 
 const Image = styled.div`
   background-image: url(${props => props.bgUrl});
-  height: 280px;
+  height: 200px;
   background-size: cover;
   border-radius: 7px;
   background-position: center center;
@@ -67,7 +67,7 @@ const Poster = ({ id, imageUrl, title, rating, year, isMovie = false }) => (
         </Rating>
       </ImageContainer>
       <Title>
-        {title.length > 18 ? `${title.substring(0, 18)}...` : title}
+        {title.length > 18 ? `${title.substring(0, 14)}...` : title}
       </Title>
       <Year>{year}</Year>
     </Container>
