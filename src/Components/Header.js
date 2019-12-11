@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 const Header = styled.header`
     display:flex;
@@ -49,20 +49,18 @@ const SLink = styled(Link)`
 `;
 
 
-export default () => (
+export default withRouter(({ location: { pathname } }) => (
     <Header>
-        <Homego>
+        <Homego current={pathname === "/"}>
             <SLink to="/">루치 영화</SLink>
         </Homego>
         <List>
-            <Item>
+            <Item current={pathname === "/movie"}>
                 <SLink to="/movie">Movie</SLink>
             </Item>
-            <Item>
+            <Item current={pathname === "/notice"}>
                 <SLink to="/notice">Notice</SLink>
             </Item>
-
         </List>
-
     </Header>
-);
+));

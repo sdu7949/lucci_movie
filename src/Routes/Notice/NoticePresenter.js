@@ -3,9 +3,8 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Loader from "Components/Loader";
 import Message from "../../Components/Message";
-import Poster from "../../Components/Poster";
 import Helmet from "react-helmet";
-import NoticeSection from "Components/NoticeSection";
+import MediaNotice from "Routes/Notice/Media";
 
 const Container = styled.div`
     padding : 20px;    
@@ -19,7 +18,7 @@ const Title = styled.div`
 `;
 
 
-const NoticePresenter = ({nowPlaying, loading, error}) => (
+const NoticePresenter = ({ loading, error}) => (
     <>
         <Helmet>
             <title>Notice | LucciMovie</title>
@@ -30,23 +29,16 @@ const NoticePresenter = ({nowPlaying, loading, error}) => (
                 <Container>
                      <Title>Notice</Title>   
                      
-                    {nowPlaying && nowPlaying.length > 0 && (
-                        <NoticeSection title="Notice">
-                            
+                    
+                    <MediaNotice></MediaNotice>
+                    <MediaNotice></MediaNotice>
+                    <MediaNotice></MediaNotice>
+                    <MediaNotice></MediaNotice>
+                    <MediaNotice></MediaNotice>
+                    <MediaNotice></MediaNotice>
+                    <MediaNotice></MediaNotice>
+                    <MediaNotice></MediaNotice>
 
-                            {nowPlaying.map(movie => (
-                                <Poster
-                                    key={movie.id}
-                                    id={movie.id}
-                                    imageUrl={movie.poster_path}
-                                    title={movie.original_title}
-                                    rating={movie.vote_average}
-                                    year={movie.release_date.substring(0, 4)}
-                                    isMovie={true}
-                                />
-                            ))}
-                        </NoticeSection>
-                    )}
                     {error && <Message color="#e74c3c" text={error}></Message>}
 
                 </Container>
