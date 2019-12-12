@@ -5,26 +5,28 @@ import { moviesApi } from "api";
 export default class extends React.Component {
   state = {
     nowPlaying: null,
-        error: null,
-        loading: true,
+    error: null,
+    loading: true,
+    
   };
 
-  async componentDidMount(){
-    try{
-      const{
-        data : {results : nowPlaying}
+  
+  async componentDidMount() {
+    try {
+      const {
+        data: { results: nowPlaying }
       } = await moviesApi.nowPlaying();
 
       this.setState({
         nowPlaying
       })
-    }catch{
+    } catch{
       this.setState({
-        error : "no information . "
+        error: "no information . "
       })
-    }finally{
+    } finally {
       this.setState({
-        loading:false
+        loading: false
       });
     }
   }
@@ -33,11 +35,11 @@ export default class extends React.Component {
   render() {
     const { nowPlaying, loading, error } = this.state;
     return (
-      <NoticePresenter 
-      nowPlaying={nowPlaying}
-      error={error}
-      loading = {loading} />
+      <NoticePresenter
+        nowPlaying={nowPlaying}
+        error={error}
+        loading={loading} />
     )
-    
+
   }
 }

@@ -18,7 +18,6 @@ export default () => (
             <Route path="/notice" exact component={Notice} />
             <Route path="/movie/:id" component={Detail} />
             <Redirect from="*" to="/" />
-
         </Switch>
         </>
 

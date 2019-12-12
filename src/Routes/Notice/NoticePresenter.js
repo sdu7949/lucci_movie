@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Loader from "Components/Loader";
 import Message from "../../Components/Message";
 import Helmet from "react-helmet";
-import MediaNotice from "Routes/Notice/Media";
+import Media from "Routes/Notice/Media";
 
 const Container = styled.div`
     padding : 20px;    
@@ -29,15 +29,7 @@ const NoticePresenter = ({ loading, error}) => (
                 <Container>
                      <Title>Notice</Title>   
                      
-                    
-                    <MediaNotice></MediaNotice>
-                    <MediaNotice></MediaNotice>
-                    <MediaNotice></MediaNotice>
-                    <MediaNotice></MediaNotice>
-                    <MediaNotice></MediaNotice>
-                    <MediaNotice></MediaNotice>
-                    <MediaNotice></MediaNotice>
-                    <MediaNotice></MediaNotice>
+                    <Media></Media>
 
                     {error && <Message color="#e74c3c" text={error}></Message>}
 

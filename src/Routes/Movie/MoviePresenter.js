@@ -18,59 +18,96 @@ const Title = styled.div`
     margin: 20px 10px;
 `;
 
-const MoviePresenter = ({ nowPlaying, loading, error }) => (
-    <>
-        <Helmet>
-            <title>Movie | LucciMovie</title>
-        </Helmet>
-        {loading ? (
-            <Loader />
-        ) : (
-                <Container>
+const Form = styled.form`
+    margin-bottom : 50px;
+    width:100%;
+    box-shadow : 1px 1px 1px gray;
+    display : flex;
+    left : 0;
+`;
 
-                    <Title>Movie</Title>
+const Input = styled.input`
+    all:unset;
+    font-size : 28px;
+    width:100%;
+`;
 
-                    {nowPlaying && nowPlaying.length > 0 && (
-                        <Section title="Now Playing">
-                            {nowPlaying.map(movie => (
-                                <Poster
-                                    key={movie.id}
-                                    id={movie.id}
-                                    imageUrl={movie.poster_path}
-                                    title={movie.original_title}
-                                    rating={movie.vote_average}
-                                    year={movie.release_date.substring(0, 4)}
-                                    isMovie={true}
-                                />
-                            ))}
-                        </Section>
-                    )}
+const MoviePresenter = ({
+    nowPlaying,
+    loading,
+    error,
+    movieResults,
+    searchTerm,
+    handleSubmit,
+    updateTerm
+}) => (
+        <Container>
+            <Helmet>
+                <title>Movie | LucciMovie</title>
+            </Helmet>
+            <Title>Movie</Title>
+            <Form onSubmit={handleSubmit}>
+                <Input placeholder="Search Movies..."
+                    value={searchTerm}
+                    onChange={updateTerm} />
+            </Form>
+            {loading ? (
+                <Loader />
+            ) : (
+                    <>
+                        {!movieResults && nowPlaying && nowPlaying.length > 0 && 
+                        (
+                            <Section title="Now Playing">
+                                {nowPlaying.map(movie => (
+                                    <Poster
+                                        key={movie.id}
+                                        id={movie.id}
+                                        imageUrl={movie.poster_path}
+                                        title={movie.original_title}
+                                        rating={movie.vote_average}
+                                        year={movie.release_date.substring(0, 4)}
+                                        isMovie={true}
+                                    />
+                                ))}
+                            </Section>
+                        )}
 
-                    {nowPlaying && nowPlaying.length > 0 && (
-                        <Section>
-                            {nowPlaying.map(movie => (
-                                <Poster
-                                    key={movie.id}
-                                    id={movie.id}
-                                    imageUrl={movie.poster_path}
-                                    title={movie.original_title}
-                                    rating={movie.vote_average}
-                                    year={movie.release_date.substring(0, 4)}
-                                    isMovie={true}
-                                />
-                            ))}
-                        </Section>
-                    )}
-                    {error && <Message color="#e74c3c" text={error} />}
-                </Container>
-            )}
-    </>
-);
+                        {movieResults && movieResults.length > 0 && (
+                            <Section title="Movie Results">
+                                {movieResults.map(movie => (
+                                    <Poster
+                                        key={movie.id}
+                                        id={movie.id}
+                                        imageUrl={movie.poster_path}
+                                        title={movie.original_title}
+                                        rating={movie.vote_average}
+                                        year={movie.release_date.substring(0, 4)}
+                                        isMovie={true}
+                                    />
+                                ))}
+                            </Section>
+                        )}
+
+
+                        {error && <Message color="#e74c3c" text={error} />}
+
+                        {movieResults &&
+                            movieResults.length === 0 && (
+                                <Message text="Nothing found" color="#95a5a6" />
+                            )}
+                    </>
+                )}
+        </Container>
+    );
 
 MoviePresenter.propTypes = {
     nowPlaying: PropTypes.array,
     loading: PropTypes.bool.isRequired,
-    error: PropTypes.string
+    error: PropTypes.string,
+    movieResults: PropTypes.array,
+    searchTerm: PropTypes.string,
+    handleSubmit: PropTypes.func,
+    updateTerm: PropTypes.func
 };
 
 export default MoviePresenter;

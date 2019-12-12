@@ -45,7 +45,7 @@ export default class Carousel extends Component {
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 7,
+      slidesToShow: 6,
       slidesToScroll: 2
     };
     return (
