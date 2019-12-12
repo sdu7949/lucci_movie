@@ -7,10 +7,10 @@ export default class extends React.Component{
         nowPlaying: null,
         error: null,
         loading: true,
+        upcoming : null,
     };
 
     
-
     async componentDidMount(){
         try{
             const{
@@ -32,16 +32,44 @@ export default class extends React.Component{
         }
     }
 
+
+    handleClick =async() =>{
+        const {nowPlaying} = this.state;
+        try{
+            const{
+                data : {results : newNowPlaying}
+            } = await moviesApi.nowPlaying(); 
+            this.setState({
+                nowPlaying : [...nowPlaying,...newNowPlaying]
+            });
+            
+        }catch{
+            this.setState({
+                error : "no information. "
+            });
+        }finally{
+            this.setState({
+                loading : false
+            });
+        }
+        
+    }
+
+
     render() {
         const { nowPlaying, loading, error } = this.state;
 
         
         return (
-            <HomePresenter
-                nowPlaying={nowPlaying}
-                error={error}
-                loading={loading}
-            />
-        )
+            <>
+
+                <HomePresenter
+                    nowPlaying={nowPlaying}
+                    error={error}
+                    loading={loading}
+                    handleClick={this.handleClick}
+                />
+            </>
+        );
     }
 }

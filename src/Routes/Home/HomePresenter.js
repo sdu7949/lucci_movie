@@ -10,6 +10,7 @@ import Carousel from "./Carousel";
 import Footer from "Components/Footer";
 import Slider from "Routes/Home/Slider";
 
+
 const Container = styled.div`
     padding : 20px;    
 `;
@@ -25,7 +26,8 @@ const Button= styled.button`
 `;
 
 
-const HomePresenter = ({ nowPlaying, loading, error }) => (
+
+const HomePresenter = ({ nowPlaying, loading, error, handleClick }) => (
     <>
         <Helmet>
             <title>Home | LucciMovie</title>
@@ -34,9 +36,6 @@ const HomePresenter = ({ nowPlaying, loading, error }) => (
             <Loader />
         ) : (
                 <Container>
-                    <Helmet>
-                        <title>Home | LucciMovie</title>
-                    </Helmet>
 
                     <Slider />
 
@@ -63,12 +62,10 @@ const HomePresenter = ({ nowPlaying, loading, error }) => (
                     
 
 
-                
-
                     <ButtonContainer>
-                        <Button>누르면 아이템이 더 나오는 버튼</Button>
-
+                        <Button onClick={handleClick}>누르면 아이템이 더 나오는 버튼</Button>
                     </ButtonContainer>
+
                 
                     <Footer />
                 </Container>
@@ -80,7 +77,9 @@ const HomePresenter = ({ nowPlaying, loading, error }) => (
 HomePresenter.propTypes = {
     nowPlaying: PropTypes.array,
     loading: PropTypes.bool.isRequired,
-    error: PropTypes.string
+    error: PropTypes.string,
+    handleClick : PropTypes.func,
+    // newNowPlaying: PropTypes.func,
 };
 
 export default HomePresenter;
