@@ -37,7 +37,7 @@ const NoticePresenter = ({ loading, error}) => (
         )}
     </>
 );
-
+    
 NoticePresenter.propTypes = {
     nowPlaying: PropTypes.array,
     loading : PropTypes.bool.isRequired,
