@@ -4,11 +4,9 @@ import styled from "styled-components";
 import Loader from "Components/Loader";
 import Message from "../../Components/Message";
 import Helmet from "react-helmet";
-import Media from "Routes/Notice/Media";
-import Scroll from "Routes/Notice/Prac"
+import Scroll from "Routes/Notice/Scroll"
 
-const Container = styled.div`
-    padding : 20px;    
+const Container = styled.div`   
 `;
 
 const Title = styled.div`
@@ -27,14 +25,14 @@ const NoticePresenter = ({ loading, error}) => (
         {loading ? (
             <Loader/>
         ) : (
+            
                 <Container>
                      <Title>Notice</Title>   
                      
-                    <Media></Media>
-
+                    
                     {error && <Message color="#e74c3c" text={error}></Message>}
 
-                    <Scroll></Scroll>
+                    <Scroll />
                 </Container>
         )}
     </>
