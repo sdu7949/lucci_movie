@@ -5,6 +5,7 @@ import Loader from "Components/Loader";
 import Message from "../../Components/Message";
 import Helmet from "react-helmet";
 import Media from "Routes/Notice/Media";
+import Scroll from "Routes/Notice/Prac"
 
 const Container = styled.div`
     padding : 20px;    
@@ -33,6 +34,7 @@ const NoticePresenter = ({ loading, error}) => (
 
                     {error && <Message color="#e74c3c" text={error}></Message>}
 
+                    <Scroll></Scroll>
                 </Container>
         )}
     </>

@@ -12,7 +12,7 @@ import pic7 from 'Routes/Home/Images/7.jpg';
 const Container = styled.div`
   font-size: 12px;
 `;
-
+ 
 const Item = styled.div`
   align-content : center;
   background-size : cover;

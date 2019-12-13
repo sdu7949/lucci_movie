@@ -88,11 +88,10 @@ const movieList = [
 
 const MediaNotice = () => {
   return (
-
+    
     <Container>
       {movieList.map(notice => (
         <>
-
           <Contents body>
             <div style={{ flexDirection: 'column' }}>
 
@@ -112,3 +111,5 @@ const MediaNotice = () => {
 };
 
 export default MediaNotice;
+
+
