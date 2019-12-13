@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/lucci_movie/static/js/main.3453bc3c.chunk.js",
-    "main.js.map": "/lucci_movie/static/js/main.3453bc3c.chunk.js.map",
+    "main.js": "/lucci_movie/static/js/main.3de7fd10.chunk.js",
+    "main.js.map": "/lucci_movie/static/js/main.3de7fd10.chunk.js.map",
     "runtime-main.js": "/lucci_movie/static/js/runtime-main.163108e4.js",
     "runtime-main.js.map": "/lucci_movie/static/js/runtime-main.163108e4.js.map",
-    "static/js/2.01ab3bd6.chunk.js": "/lucci_movie/static/js/2.01ab3bd6.chunk.js",
-    "static/js/2.01ab3bd6.chunk.js.map": "/lucci_movie/static/js/2.01ab3bd6.chunk.js.map",
+    "static/js/2.0931edb0.chunk.js": "/lucci_movie/static/js/2.0931edb0.chunk.js",
+    "static/js/2.0931edb0.chunk.js.map": "/lucci_movie/static/js/2.0931edb0.chunk.js.map",
     "index.html": "/lucci_movie/index.html",
-    "precache-manifest.eb48a738a66dabd1d5b63c72cc31bd9c.js": "/lucci_movie/precache-manifest.eb48a738a66dabd1d5b63c72cc31bd9c.js",
+    "precache-manifest.2e927ba5c34585993eee860d594769f4.js": "/lucci_movie/precache-manifest.2e927ba5c34585993eee860d594769f4.js",
     "service-worker.js": "/lucci_movie/service-worker.js",
-    "static/js/2.01ab3bd6.chunk.js.LICENSE": "/lucci_movie/static/js/2.01ab3bd6.chunk.js.LICENSE",
+    "static/js/2.0931edb0.chunk.js.LICENSE": "/lucci_movie/static/js/2.0931edb0.chunk.js.LICENSE",
     "static/media/1.jpg": "/lucci_movie/static/media/1.f7603bb9.jpg",
     "static/media/2.jpg": "/lucci_movie/static/media/2.71d66145.jpg",
     "static/media/3.jpg": "/lucci_movie/static/media/3.d69f0f6d.jpg",
@@ -22,7 +22,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.163108e4.js",
-    "static/js/2.01ab3bd6.chunk.js",
-    "static/js/main.3453bc3c.chunk.js"
+    "static/js/2.0931edb0.chunk.js",
+    "static/js/main.3de7fd10.chunk.js"
   ]
 }

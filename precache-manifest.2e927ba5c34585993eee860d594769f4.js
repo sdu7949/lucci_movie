@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a59b1a4025a27cc72f21c2f91790a601",
+    "revision": "541260650d13adc6783df7e9f8f0eb24",
     "url": "/lucci_movie/index.html"
   },
   {
-    "revision": "274f756d3d1491469e0a",
-    "url": "/lucci_movie/static/js/2.01ab3bd6.chunk.js"
+    "revision": "16484381545f3cc0ae7e",
+    "url": "/lucci_movie/static/js/2.0931edb0.chunk.js"
   },
   {
     "revision": "4ca57b6f66f969d394ef185db56928b6",
-    "url": "/lucci_movie/static/js/2.01ab3bd6.chunk.js.LICENSE"
+    "url": "/lucci_movie/static/js/2.0931edb0.chunk.js.LICENSE"
   },
   {
-    "revision": "db2359db4d93f51c5b29",
-    "url": "/lucci_movie/static/js/main.3453bc3c.chunk.js"
+    "revision": "8fa66ee4bc6403b86ba2",
+    "url": "/lucci_movie/static/js/main.3de7fd10.chunk.js"
   },
   {
     "revision": "347915292bfb6b3047de",
