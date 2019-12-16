@@ -1,75 +1,42 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import HomePresenter from "./HomePresenter";
 import { moviesApi } from "api";
 
-export default class extends React.Component{
-    state = {
-        nowPlaying: null,
-        error: null,
-        loading: true,
-        upcoming : null,
-    };
 
-    
-    async componentDidMount(){
-        try{
-            const{
-                data : {results : nowPlaying}
-            } = await moviesApi.nowPlaying(); 
-            
-            this.setState({
-                nowPlaying, 
-            });
-            
-        }catch{
-            this.setState({
-                error : "no information. "
-            });
-        }finally{
-            this.setState({
-                loading : false
-            });
-        }
-    }
+const HomeContainer = () => {
+    const [nowPlaying, setNowPlaying] = useState(null);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
 
 
-    handleClick =async() =>{
-        const {nowPlaying} = this.state;
-        try{
-            const{
-                data : {results : newNowPlaying}
-            } = await moviesApi.nowPlaying(); 
-            this.setState({
-                nowPlaying : [...nowPlaying,...newNowPlaying]
-            });
-            
-        }catch{
-            this.setState({
-                error : "no information. "
-            });
-        }finally{
-            this.setState({
-                loading : false
-            });
-        }
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const{
+                    data: {results : nowPlaying}
+                } = await moviesApi.nowPlaying();
+                setNowPlaying(nowPlaying);
+                console.log(await moviesApi.nowPlaying());
+            } catch{
+                setError(`no information`);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchData();
+    }, []);
+
+    return (
         
-    }
-
-
-    render() {
-        const { nowPlaying, loading, error } = this.state;
-
-        
-        return (
-            <>
-
-                <HomePresenter
-                    nowPlaying={nowPlaying}
-                    error={error}
-                    loading={loading}
-                    handleClick={this.handleClick}
-                />
-            </>
-        );
-    }
+        <>
+            <HomePresenter
+                nowPlaying={nowPlaying}
+                error={error}
+                loading={loading}
+            />
+        </>
+    )
 }
+
+export default HomeContainer;
