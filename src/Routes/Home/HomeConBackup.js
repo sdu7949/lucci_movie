@@ -34,7 +34,7 @@ export default class extends React.Component{
         }
     }
 
-
+ 
     handleClick =async() =>{
         const {nowPlaying} = this.state;
         try{

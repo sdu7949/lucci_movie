@@ -24,7 +24,7 @@ const MovieContainer = () =>{
         };
         fetchData();
     }, []);
-
+ 
     const handleSubmit = event => {
         event.preventDefault();
         if (searchTerm !== "") {
@@ -34,13 +34,10 @@ const MovieContainer = () =>{
 
     const updateTerm = event => {
         const { target: { value } } = event;
-
-        
         setSearchTerm(value);
     };
 
     const searchByTerm = async () => {
-
         setLoading(true);
         try{
             const {
@@ -52,8 +49,6 @@ const MovieContainer = () =>{
         }finally{
             setLoading(false);
         }
-
-        
     };
 
     return (

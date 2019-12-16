@@ -10,7 +10,7 @@ export default class extends React.Component {
         movieResults: null,
         searchTerm: "",
     };
-
+ 
     handleSubmit = event => {
         event.preventDefault();
         const { searchTerm } = this.state;
