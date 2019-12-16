@@ -17,7 +17,9 @@ const HomeContainer = () => {
                     data: {results : nowPlaying}
                 } = await moviesApi.nowPlaying();
                 setNowPlaying(nowPlaying);
-                console.log(await moviesApi.nowPlaying());
+
+                console.log(nowPlaying);
+
             } catch{
                 setError(`no information`);
             } finally {
@@ -25,15 +27,31 @@ const HomeContainer = () => {
             }
         };
         fetchData();
+
+
     }, []);
 
+    const handleClick=async()=> {
+        try{
+            const{
+                data: {results : newNowPlaying}
+            } = await moviesApi.nowPlaying();
+            setNowPlaying([...nowPlaying,...newNowPlaying]);
+            console.log(nowPlaying)
+        }catch{
+            setError(`no information button`);
+        }finally{
+            setLoading(false);
+        }
+    }
+
     return (
-        
         <>
             <HomePresenter
                 nowPlaying={nowPlaying}
                 error={error}
                 loading={loading}
+                handleClick = {handleClick}
             />
         </>
     )
