@@ -1,45 +1,44 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import NoticePresenter from "./NoticePresenter";
 import { moviesApi } from "api";
 
-export default class extends React.Component {
-  state = {
-    nowPlaying: null,
-    error: null,
-    loading: true,
-    
-  };
+const NoticeContainer = () =>{
+  const [nowPlaying, setNowPlaying] = useState(null);
+  const [error, setError]= useState(null);
+  const [loading, setLoading] = useState(true);
 
-  
-  async componentDidMount() {
-    try {
-      const {
-        data: { results: nowPlaying }
-      } = await moviesApi.nowPlaying();
+  useEffect(() => {
+    const fetchData = async () => {
+        try {
+            const{
+                data: {results : nowPlaying}
+            } = await moviesApi.nowPlaying();
+            setNowPlaying(nowPlaying);
 
-      this.setState({
-        nowPlaying
-      })
-    } catch{
-      this.setState({
-        error: "no information . "
-      })
-    } finally {
-      this.setState({
-        loading: false
-      });
-    }
-  }
+            console.log(nowPlaying);
+
+        } catch{
+            setError(`no information`);
+        } finally {
+            setLoading(false);
+        }
+    };
+    fetchData();
 
 
-  render() {
-    const { nowPlaying, loading, error } = this.state;
-    return (
-      <NoticePresenter
+}, []);
+
+  return(
+    <>
+      <NoticePresenter 
         nowPlaying={nowPlaying}
         error={error}
-        loading={loading} />
-    )
+        loading={loading}
+      />
+    </>
+  )
 
-  }
 }
+
+export default NoticeContainer;
+

@@ -1,32 +1,3 @@
-import React, {useState, useEffect} from "react";
-import HomePresenter from "./HomePresenter";
-import { moviesApi } from "api";
-
-
-function HomePresenter(){
-    const [nowPlaying, setNowPlaying] = useState(null);
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true);
-
-
-    useEffect(()=> {
-        try{
-            setNowPlaying(movieApi.nowPlaying());
-        }catch{
-            setError(`no information`);
-        }finally{
-            setLoading(false);
-        }
-    })
-
-    return (
-        <HomePresenter>
-            {nowPlaying}
-            {error}
-            {loading}
-        </HomePresenter>
-    )
-}
 
 
 //======================================================

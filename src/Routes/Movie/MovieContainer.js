@@ -1,89 +1,72 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import MoviePresenter from "./MoviePresenter";
 import { moviesApi } from "api";
 
-export default class extends React.Component {
-    state = {
-        nowPlaying: null,
-        error: null,
-        loading: true,
-        movieResults: null,
-        searchTerm: "",
-    };
+const MovieContainer = () =>{
+    const [nowPlaying, setNowPlaying]=useState(null);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [movieResults, setMovieResults] = useState(null);
+    const [searchTerm, setSearchTerm] = useState("");
 
-    handleSubmit = event => {
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const{
+                    data: {results : nowPlaying}
+                } = await moviesApi.nowPlaying();
+                setNowPlaying(nowPlaying);
+            } catch{
+                setError(`no information`);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchData();
+    }, []);
+
+    const handleSubmit = event => {
         event.preventDefault();
-        const { searchTerm } = this.state;
         if (searchTerm !== "") {
-            this.searchByTerm();
+            searchByTerm();
         }
     };
 
-    updateTerm = (event) => {
+    const updateTerm = event => {
         const { target: { value } } = event;
-        this.setState({
-            searchTerm: value
-        });
+
+        
+        setSearchTerm(value);
     };
 
-    searchByTerm = async () => {
-        const { searchTerm } = this.state;
-        this.setState({
-            loading: true
-        });
-        try {
+    const searchByTerm = async () => {
+
+        setLoading(true);
+        try{
             const {
                 data: { results: movieResults }
             } = await moviesApi.search(searchTerm);
-            this.setState({
-                movieResults
-            });
-        } catch{
-            this.setState({
-                error: "Can't find results. "
-            });
-        } finally {
-            this.setState({
-                loading: false
-            })
+            setMovieResults(movieResults);
+        }catch{
+            setError(`Can't find results`);
+        }finally{
+            setLoading(false);
         }
+
+        
     };
 
-
-
-    async componentDidMount() {
-        try {
-            const {
-                data: { results: nowPlaying }
-            } = await moviesApi.nowPlaying();
-            this.setState({
-                nowPlaying
-            });
-
-        } catch{
-            this.setState({
-                error: "no information. "
-            });
-        } finally {
-            this.setState({
-                loading: false
-            });
-        }
-    }
-
-
-    render() {
-        const { nowPlaying, loading, error, movieResults, searchTerm } = this.state;
-        return (
-            <MoviePresenter
-                nowPlaying={nowPlaying}
-                error={error}
-                loading={loading}
-                searchTerm={searchTerm}
-                handleSubmit={this.handleSubmit}
-                updateTerm={this.updateTerm}
-                movieResults={movieResults}
-            />
-        )
-    }
+    return (
+        <MoviePresenter
+            nowPlaying={nowPlaying}
+            error={error}
+            loading={loading}
+            searchTerm={searchTerm}
+            handleSubmit={handleSubmit}
+            updateTerm={updateTerm}
+            movieResults={movieResults}
+        />
+    )
 }
+
+export default MovieContainer;

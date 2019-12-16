@@ -37,7 +37,6 @@ const HomeContainer = () => {
                 data: {results : newNowPlaying}
             } = await moviesApi.nowPlaying();
             setNowPlaying([...nowPlaying,...newNowPlaying]);
-            console.log(nowPlaying)
         }catch{
             setError(`no information button`);
         }finally{

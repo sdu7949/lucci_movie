@@ -2,7 +2,6 @@ import React from "react";
 import DetailPresenter from "./DetailPresenter";
 import {moviesApi} from "api";
 
-
 export default class extends React.Component {
   constructor(props){
     super(props);
@@ -14,7 +13,7 @@ export default class extends React.Component {
       isMovie : pathname.includes("/movie/")
     };
   }
- 
+
   async componentDidMount(){
     const{
       match : {params: {id}},
